@@ -8,13 +8,13 @@ Then, all the songs in the folder which are not in the iTunes playlist will be r
 Case scenario: synchronize some iTunes playlists with an USB to use it in your car.  
 
 For your personal use, edit in the file the following bash variables with your specifics:  
-CONNECTED_DEVICES_PATH="/Volumes/"  
-USB_DEVICE_NAME="My USB Drive"  
+  CONNECTED_DEVICES_PATH="/Volumes/"  
+  USB_DEVICE_NAME="My USB Drive"  
 And setup the matching Playlist-Folder at the beginning of the python code:  
-PLAYLISTS = [  
-  {'iTunes': "iTunes Playlist 1", 'USB': "USB Folder 1"},  
-  {'iTunes': "iTunes Playlist 2", 'USB': "USB Folder 2"}  
-]  
+  PLAYLISTS = [  
+    {'iTunes': "iTunes Playlist 1", 'USB': "USB Folder 1"},  
+    {'iTunes': "iTunes Playlist 2", 'USB': "USB Folder 2"}  
+  ]  
 You can add how many matches you want.  
 
 After allowing +x permission to the file you can just double click it to run the script.  
