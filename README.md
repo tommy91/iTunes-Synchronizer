@@ -12,8 +12,8 @@ For your personal use, edit in the file the following bash variables with your s
   USB_DEVICE_NAME="My USB Drive"
 And setup the matching Playlist-Folder at the beginning of the python code:
   PLAYLISTS = [
-	  {'iTunes': "Itunes Playlist 1", 'USB': "USB Folder 1"},
-	  {'iTunes': "Itunes Playlist 2", 'USB': "USB Folder 2"}
+  	{'iTunes': "Itunes Playlist 1", 'USB': "USB Folder 1"},
+	{'iTunes': "Itunes Playlist 2", 'USB': "USB Folder 2"}
   ]
 You can add how many matches you want.
 
