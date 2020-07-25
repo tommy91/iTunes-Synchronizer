@@ -41,6 +41,10 @@ PLAYLISTS = [
 	{'iTunes': "Itunes Playlist 2", 'USB': "USB Folder 2"}
 ]
 
+# Uncomment the appropriate line
+app_name = "Music"  # for Catalina
+# app_name = "iTunes"  # previous versions
+
 
 def normalize(s):
 	# To match strings with accents in different encodings
@@ -56,19 +60,21 @@ def getFileMetadata(filepath,tag):
 
 
 def getItunesPlaylistsNames():
-	applescript_command = "tell application \"iTunes\" to get name of playlists"
+	applescript_command = "tell application \"" + app_name + "\" to get name of playlists"
 	itunes_process = subprocess.Popen(['osascript','-e',applescript_command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	itunes_playlists, ip_err = itunes_process.communicate()
 	if ip_err:
 		raise Exception("Error: " + str(ip_err))
 	itunes_playlists_names = []
+	print "iTunes playlists names:"
 	for playlist_name in (itunes_playlists).split(','):
+		print "- " + str(playlist_name)
 		itunes_playlists_names.append(playlist_name.strip())
 	return itunes_playlists_names
 
 
 def getItunesPlaylistFilepaths(itunes_playlist_name):
-	applescript_command = "tell application \"iTunes\" to get {location} of (every track in playlist \"" + itunes_playlist_name + "\")"
+	applescript_command = "tell application \"" + app_name + "\" to get {location} of (every track in playlist \"" + itunes_playlist_name + "\")"
 	itunes_process = subprocess.Popen(['osascript','-e',applescript_command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	itunes_data, ip_err = itunes_process.communicate()
 	if ip_err:
